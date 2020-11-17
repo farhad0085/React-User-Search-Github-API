@@ -1,10 +1,10 @@
 import React from 'react'
-import UserGist from '../components/UserGist'
+import UserFollowings from '../components/UserFollowings'
 
 
 const FollowingPage = () => {
 
-    return <UserGist />
+    return <UserFollowings />
 
 }
 

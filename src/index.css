@@ -13,6 +13,12 @@ img.profile-pic {
     width: 200px;
 }
 
+img.follow-profile-pic {
+    border-radius: 50%;
+    height: 70px;
+    width: 70px;
+}
+
 @media screen and (max-width: 767px) {
     img.profile-pic {
         height: 100px;
@@ -21,8 +27,6 @@ img.profile-pic {
 }
 
 .view-on-github {
-    width: 256px;
-    height: 49px;
     font-weight: bold;
     font-size: 22px;
     color: #FFFFFF !important;
@@ -79,4 +83,8 @@ img.profile-pic {
     color: black !important;
     font-weight: bold;
     border-radius: 5px;
+}
+
+.border-round {
+    border-radius: 10px;
 }

@@ -5,7 +5,9 @@ const initialState = {
     user: {},
     errors: {},
     repos: [],
-    gists: []
+    gists: [],
+    followers: [],
+    followings: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -16,13 +18,6 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 user: action.payload,
                 errors: {}
-            }
-        }
-
-        case Types.USER_PROFILE_DATA_ERROR: {
-            return {
-                ...state,
-                errors: action.payload
             }
         }
 
@@ -41,6 +36,27 @@ function rootReducer(state = initialState, action) {
             }
         }
 
+        case Types.USER_FOLLOWERS_DATA_LOADED: {
+            return {
+                ...state,
+                followers: action.payload
+            }
+        }
+
+        case Types.USER_FOLLOWINGS_DATA_LOADED: {
+            return {
+                ...state,
+                followings: action.payload
+            }
+        }
+
+
+        case Types.USER_PROFILE_DATA_ERROR: {
+            return {
+                ...state,
+                errors: action.payload
+            }
+        }
         
 
         case Types.SET_LOADING: {

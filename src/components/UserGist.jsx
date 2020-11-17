@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 
-const SingleGist = ({gist}) => {
+const SingleGist = ({ gist }) => {
     return (
-        <div className="card">
+        <div className="card border-round p-3 mb-2">
             <h3>{Object.keys(gist.files)[0]}</h3>
             <p>{gist.description}</p>
         </div>
@@ -16,18 +16,15 @@ const UserGist = ({ gists }) => {
 
     return (
         <>
-            <div className="card">
-               {gists.map(gist => {
-                   return <SingleGist key={Object.keys(gist.files)[0]} gist={gist} />
-               })}
-            </div>
+            {gists.map(gist => {
+                return <SingleGist key={Object.keys(gist.files)[0]} gist={gist} />
+            })}
         </>
     )
 
 }
 
 const mapStateToProps = state => {
-    console.log("UserGist state", state);
     return state
 }
 

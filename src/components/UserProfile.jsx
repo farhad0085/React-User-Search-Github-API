@@ -42,7 +42,6 @@ const UserProfile = ({ user }) => {
 }
 
 const mapStateToProps = state => {
-    console.log("UserProfile state", state);
     return state
 }
 

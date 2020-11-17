@@ -7,9 +7,11 @@ export const loadUserProfileData = user => dispatch => {
 
     axios.get(`https://api.github.com/users/${user}`)
         .then(res => {
-            console.log(res.data);
             
             dispatch(loadUserRepoData(res.data.login))
+            dispatch(loadUserGistData(res.data.login))
+            dispatch(loadUserFollowersData(res.data.login))
+            dispatch(loadUserFollowingsData(res.data.login))
             dispatch(loadUserGistData(res.data.login))
 
 
@@ -29,7 +31,6 @@ const loadUserRepoData = (username) => dispatch => {
     console.log("loadUserRepoData called", username);
     axios.get(`https://api.github.com/users/${username}/repos`)
         .then(res => {
-            console.log(res.data);
             dispatch({type: Types.USER_REPOS_DATA_LOADED, payload: res.data })
         })
         .catch(error => {
@@ -43,8 +44,35 @@ const loadUserGistData = (username) => dispatch => {
     
     axios.get(`https://api.github.com/users/${username}/gists`)
         .then(res => {
-            console.log(res.data);
             dispatch({type: Types.USER_GISTS_DATA_LOADED, payload: res.data })
+        })
+        .catch(error => {
+            console.dir(error);
+            dispatch({type: Types.USER_PROFILE_DATA_ERROR, payload: error.response.data })
+        })
+}
+
+
+const loadUserFollowersData = (username) => dispatch => {
+
+    
+    axios.get(`https://api.github.com/users/${username}/followers`)
+        .then(res => {
+            dispatch({type: Types.USER_FOLLOWERS_DATA_LOADED, payload: res.data })
+        })
+        .catch(error => {
+            console.dir(error);
+            dispatch({type: Types.USER_PROFILE_DATA_ERROR, payload: error.response.data })
+        })
+}
+
+
+const loadUserFollowingsData = (username) => dispatch => {
+
+    
+    axios.get(`https://api.github.com/users/${username}/following`)
+        .then(res => {
+            dispatch({type: Types.USER_FOLLOWINGS_DATA_LOADED, payload: res.data })
         })
         .catch(error => {
             console.dir(error);

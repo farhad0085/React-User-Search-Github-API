@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 
-const SingleRepo = ({repo}) => {
+const SingleRepo = ({ repo }) => {
     return (
-        <div className="card">
+        <div className="card border-round p-3 mb-2">
             <h3>{repo.name}</h3>
             <p>{repo.description}</p>
         </div>
@@ -16,18 +16,15 @@ const UserRepo = ({ repos }) => {
 
     return (
         <>
-            <div className="card">
-               {repos.map(repo => {
-                   return <SingleRepo key={repo.name} repo={repo} />
-               })}
-            </div>
+            {repos.map(repo => {
+                return <SingleRepo key={repo.name} repo={repo} />
+            })}
         </>
     )
 
 }
 
 const mapStateToProps = state => {
-    console.log("UserRepo state", state);
     return state
 }
 

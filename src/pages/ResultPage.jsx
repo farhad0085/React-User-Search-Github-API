@@ -26,7 +26,6 @@ const ResultPage = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log("Resultpage state", state);
     return state
 }
 
