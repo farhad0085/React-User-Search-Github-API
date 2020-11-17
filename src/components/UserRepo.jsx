@@ -12,7 +12,7 @@ const SingleRepo = ({repo}) => {
 }
 
 
-const UserRepo = ({ user, repos }) => {
+const UserRepo = ({ repos }) => {
 
     return (
         <>

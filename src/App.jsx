@@ -9,7 +9,7 @@ function App() {
         <BrowserRouter>
             <div className="App">
                 <TopNavbar />
-                <div className="container-fluid">
+                <div className="container-fluid mb-5">
                     <Route path="/" component={HomePage} />
                 </div>
             </div>

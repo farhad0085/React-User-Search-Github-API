@@ -4,6 +4,7 @@ import UserProfileNavbar from './navigations/UserProfileNavbar';
 import { getFormattedDateTime } from '../utils';
 import { Route } from 'react-router-dom';
 import RepoPage from '../pages/RepoPage'
+import GistPage from '../pages/GistPage';
 
 
 const UserProfile = ({ user }) => {
@@ -38,6 +39,7 @@ const UserProfile = ({ user }) => {
 
             <UserProfileNavbar />
             <Route path="/repositories" component={RepoPage} />
+            <Route path="/gists" component={GistPage} />
         </>
     )
 

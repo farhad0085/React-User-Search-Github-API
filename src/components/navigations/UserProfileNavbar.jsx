@@ -17,10 +17,10 @@ const UserProfileNavbar = ({user}) => {
                     <NavLink activeClassName="activeSectionNav" to="/starred" className="nav-link card-link">Starred</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink activeClassName="activeSectionNav" to="/followers" className="nav-link card-link">Followers</NavLink>
+                    <NavLink activeClassName="activeSectionNav" to="/followers" className="nav-link card-link">Followers ({user.followers})</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink activeClassName="activeSectionNav" to="/followings" className="nav-link card-link">Following</NavLink>
+                    <NavLink activeClassName="activeSectionNav" to="/followings" className="nav-link card-link">Following ({user.following})</NavLink>
                 </li>
             </ul>
         </nav>
