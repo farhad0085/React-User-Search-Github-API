@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import * as actions from '../store/actions/userActions'
+import { connect } from 'react-redux'
 
 
-const SingleFollower = ({ user }) => {
+const SingleFollower = ({ user, loadUserProfileData }) => {
     return (
         <div className="card border-round p-3 mb-2">
             <div className="d-flex">
@@ -12,24 +14,30 @@ const SingleFollower = ({ user }) => {
                     alt={user.login}
                 />
                 <h4 className="d-flex align-items-center">{user.login}</h4>
-                <Link
-                    to={`/user/${user.login}`}
-                    className="ml-auto card-link d-flex align-items-center btn btn-primary view-on-github"
+                <button
+                    onClick={() => loadUserProfileData(user.login)}
+                    className="ml-auto d-flex align-items-center btn btn-primary view-on-github"
                 >
                     View Profile
-                </Link>
+                </button>
             </div>
         </div>
     )
 }
 
 
-const UserFollowers = ({ users }) => {
+const UserFollowers = ({ users, loadUserProfileData }) => {
 
     return (
         <>
             {users.map(user => {
-                return <SingleFollower key={user.login} user={user} />
+                return (
+                    <SingleFollower
+                        key={user.login}
+                        loadUserProfileData={loadUserProfileData}
+                        user={user}
+                    />
+                )
             })}
         </>
     )
@@ -37,4 +45,4 @@ const UserFollowers = ({ users }) => {
 }
 
 
-export default UserFollowers
+export default connect(null, { loadUserProfileData: actions.loadUserProfileData })(UserFollowers)

@@ -1,11 +1,11 @@
 import axios from 'axios'
 import * as Types from './actionTypes'
 
-export const loadUserProfileData = user => dispatch => {
+export const loadUserProfileData = username => dispatch => {
 
     dispatch({type: Types.SET_LOADING, payload: true })
 
-    axios.get(`https://api.github.com/users/${user}`)
+    axios.get(`https://api.github.com/users/${username}`)
         .then(res => {
             
             dispatch(loadUserRepoData(res.data.login))
