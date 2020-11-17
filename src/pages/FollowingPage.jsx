@@ -1,11 +1,17 @@
 import React from 'react'
-import UserFollowings from '../components/UserFollowings'
+import UserFollowers from '../components/UserFollowers'
+import { connect } from 'react-redux'
 
 
-const FollowingPage = () => {
 
-    return <UserFollowings />
+const FollowingPage = ({followings}) => {
+
+    return <UserFollowers users={followings} />
 
 }
 
-export default FollowingPage
+const mapStateToProps = state => {
+    return state
+ }
+
+export default connect(mapStateToProps)(FollowingPage)

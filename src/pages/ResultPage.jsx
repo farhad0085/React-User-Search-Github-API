@@ -6,21 +6,21 @@ import UserProfile from '../components/UserProfile'
 const ResultPage = (props) => {
 
     return (
-        <div className="container-fluid">
+        <>
             {!props.loading && !Object.keys(props.errors).length && Object.keys(props.user).length ? (
                 <UserProfile />
             ) : (
                     <>
-                        {props.loading && <Loading size="80px" /> }
+                        {props.loading && <Loading size="80px" />}
                         {Object.keys(props.errors).length !== 0 && (
                             <div>
-                            Error Occured: {props.errors.message}
+                                Error Occured: {props.errors.message}
                             </div>
                         )}
                     </>
                 )}
 
-        </div>
+        </>
     )
 
 }

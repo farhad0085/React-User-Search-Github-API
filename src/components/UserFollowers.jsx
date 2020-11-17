@@ -1,20 +1,19 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 
-const SingleFollower = ({ follower }) => {
+const SingleFollower = ({ user }) => {
     return (
         <div className="card border-round p-3 mb-2">
             <div className="d-flex">
                 <img
                     className="follow-profile-pic mr-3"
-                    src={follower.avatar_url}
-                    alt={follower.login}
+                    src={user.avatar_url}
+                    alt={user.login}
                 />
-                <h4 className="d-flex align-items-center">{follower.login}</h4>
+                <h4 className="d-flex align-items-center">{user.login}</h4>
                 <Link
-                    to={`/user/${follower.login}`}
+                    to={`/user/${user.login}`}
                     className="ml-auto card-link d-flex align-items-center btn btn-primary view-on-github"
                 >
                     View Profile
@@ -25,20 +24,17 @@ const SingleFollower = ({ follower }) => {
 }
 
 
-const UserFollowers = ({ followers }) => {
+const UserFollowers = ({ users }) => {
 
     return (
         <>
-            {followers.map(follower => {
-                return <SingleFollower key={follower.login} follower={follower} />
+            {users.map(user => {
+                return <SingleFollower key={user.login} user={user} />
             })}
         </>
     )
 
 }
 
-const mapStateToProps = state => {
-    return state
-}
 
-export default connect(mapStateToProps)(UserFollowers)
+export default UserFollowers
