@@ -2,10 +2,10 @@ import React from 'react'
 import UserGist from '../components/UserGist'
 
 
-const GistPage = () => {
+const FollowerPage = () => {
 
     return <UserGist />
 
 }
 
-export default GistPage
+export default FollowerPage

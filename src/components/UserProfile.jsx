@@ -2,10 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import UserProfileNavbar from './navigations/UserProfileNavbar';
 import { getFormattedDateTime } from '../utils';
-import { Route } from 'react-router-dom';
-import RepoPage from '../pages/RepoPage'
-import GistPage from '../pages/GistPage';
-
+import UserRoutes from './routes/UserRoutes'
 
 const UserProfile = ({ user }) => {
 
@@ -38,8 +35,7 @@ const UserProfile = ({ user }) => {
             </div>
 
             <UserProfileNavbar />
-            <Route path="/repositories" component={RepoPage} />
-            <Route path="/gists" component={GistPage} />
+            <UserRoutes />
         </>
     )
 
