@@ -1,7 +1,7 @@
 import axios from 'axios'
 import * as Types from './actionTypes'
 
-export const loadUserProfileData = username => dispatch => {
+export const loadUserProfileData = (username, history) => dispatch => {
 
     dispatch({type: Types.SET_LOADING, payload: true })
 
@@ -17,6 +17,7 @@ export const loadUserProfileData = username => dispatch => {
 
             dispatch({type: Types.USER_PROFILE_DATA_LOADED, payload: res.data })
             dispatch({type: Types.SET_LOADING, payload: false })
+            history.push("/")
         })
         .catch(error => {
             console.dir(error);

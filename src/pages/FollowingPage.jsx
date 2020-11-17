@@ -4,9 +4,9 @@ import { connect } from 'react-redux'
 
 
 
-const FollowingPage = ({followings}) => {
+const FollowingPage = ({followings, history}) => {
 
-    return <UserFollowers users={followings} />
+    return <UserFollowers users={followings} history={history} />
 
 }
 

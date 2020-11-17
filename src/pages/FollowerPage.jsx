@@ -3,9 +3,9 @@ import UserFollowers from '../components/UserFollowers'
 import { connect } from 'react-redux'
 
 
-const FollowerPage = ({followers}) => {
+const FollowerPage = ({followers, history}) => {
 
-    return <UserFollowers users={followers} />
+    return <UserFollowers users={followers} history={history} />
 
 }
 

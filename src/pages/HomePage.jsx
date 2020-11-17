@@ -3,10 +3,10 @@ import UserSearchForm from '../forms/UserSearchForm'
 import ResultPage from './ResultPage'
 
 
-const HomePage = () => {
+const HomePage = ({history}) => {
     return (
         <>
-            <UserSearchForm />            
+            <UserSearchForm history={history} />            
             <ResultPage />
         </>
     )

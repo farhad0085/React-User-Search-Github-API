@@ -1,10 +1,9 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import * as actions from '../store/actions/userActions'
 import { connect } from 'react-redux'
 
 
-const SingleFollower = ({ user, loadUserProfileData }) => {
+const SingleFollower = ({ user, loadUserProfileData, history }) => {
     return (
         <div className="card border-round p-3 mb-2">
             <div className="d-flex">
@@ -15,7 +14,7 @@ const SingleFollower = ({ user, loadUserProfileData }) => {
                 />
                 <h4 className="d-flex align-items-center">{user.login}</h4>
                 <button
-                    onClick={() => loadUserProfileData(user.login)}
+                    onClick={() => loadUserProfileData(user.login, history)}
                     className="ml-auto d-flex align-items-center btn btn-primary view-on-github"
                 >
                     View Profile
@@ -26,7 +25,7 @@ const SingleFollower = ({ user, loadUserProfileData }) => {
 }
 
 
-const UserFollowers = ({ users, loadUserProfileData }) => {
+const UserFollowers = ({ users, loadUserProfileData, history }) => {
 
     return (
         <>
@@ -36,6 +35,7 @@ const UserFollowers = ({ users, loadUserProfileData }) => {
                         key={user.login}
                         loadUserProfileData={loadUserProfileData}
                         user={user}
+                        history={history}
                     />
                 )
             })}

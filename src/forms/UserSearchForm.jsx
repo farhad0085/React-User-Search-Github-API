@@ -10,7 +10,7 @@ const UserSearchForm = props => {
     const submitHandler = event => {
        event.preventDefault()
        setUsername('')
-       props.loadUserProfileData(username)
+       props.loadUserProfileData(username, props.history)
     }
 
     return (
