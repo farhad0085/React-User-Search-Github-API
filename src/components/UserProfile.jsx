@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import UserProfileNavbar from './navigations/UserProfileNavbar';
 import { getFormattedDateTime } from '../utils';
+import { Route } from 'react-router-dom';
+import RepoPage from '../pages/RepoPage'
 
 
 const UserProfile = ({ user }) => {
@@ -25,7 +27,8 @@ const UserProfile = ({ user }) => {
                     </div>
                     <div className="col-xs-12 col-sm-12 col-md-6 col-lg-5">
                         <h6 className="most-right-info">Public Repositories: {user.public_repos}</h6>
-                        <h6 className="most-right-info">Private Repositories: {user.private_repos}</h6>
+                        <h6 className="most-right-info">Followers: {user.followers}</h6>
+                        <h6 className="most-right-info">Following: {user.following}</h6>
                         <h6 className="most-right-info">Member Since: {getFormattedDateTime(user.created_at)}</h6>
                         <h6 className="most-right-info">Last Activity: {getFormattedDateTime(user.updated_at)}</h6>
                         <a href={user.html_url} target="_blank" rel="noreferrer" className="btn btn-primary view-on-github">View on Github</a>
@@ -34,6 +37,7 @@ const UserProfile = ({ user }) => {
             </div>
 
             <UserProfileNavbar />
+            <Route path="/repositories" component={RepoPage} />
         </>
     )
 

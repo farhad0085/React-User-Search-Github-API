@@ -1,16 +1,17 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
+import { connect } from 'react-redux'
 
-const UserProfileNavbar = () => {
+const UserProfileNavbar = ({user}) => {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4 p-4">
             <ul className="navbar-nav mx-auto">
                 <li className="nav-item">
-                    <NavLink activeClassName="activeSectionNav" to="/repositories" className="nav-link card-link">Repositories</NavLink>
+                    <NavLink activeClassName="activeSectionNav" to="/repositories" className="nav-link card-link">Repositories ({user.public_repos})</NavLink>
                 </li>
                 <li className="nav-item">
-                    <NavLink activeClassName="activeSectionNav" to="/gists" className="nav-link card-link">Gists</NavLink>
+                    <NavLink activeClassName="activeSectionNav" to="/gists" className="nav-link card-link">Gists ({user.public_gists})</NavLink>
                 </li>
                 <li className="nav-item">
                     <NavLink activeClassName="activeSectionNav" to="/starred" className="nav-link card-link">Starred</NavLink>
@@ -27,5 +28,8 @@ const UserProfileNavbar = () => {
 
 }
 
+const mapStateToProps = state => {
+   return state
+}
 
-export default UserProfileNavbar
+export default connect(mapStateToProps)(UserProfileNavbar)

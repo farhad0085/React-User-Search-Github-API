@@ -3,7 +3,9 @@ import * as Types from '../actions/actionTypes'
 const initialState = {
     loading: false,
     user: {},
-    errors: {}
+    errors: {},
+    repos: [],
+    gists: []
 }
 
 function rootReducer(state = initialState, action) {
@@ -23,6 +25,23 @@ function rootReducer(state = initialState, action) {
                 errors: action.payload
             }
         }
+
+        
+        case Types.USER_REPOS_DATA_LOADED: {
+            return {
+                ...state,
+                repos: action.payload
+            }
+        }
+
+        case Types.USER_GISTS_DATA_LOADED: {
+            return {
+                ...state,
+                gists: action.payload
+            }
+        }
+
+        
 
         case Types.SET_LOADING: {
             return {
