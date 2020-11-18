@@ -65,6 +65,15 @@ img.follow-profile-pic {
     color: #635959;
 }
 
+.description {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    color: #635959;
+}
+
 .profile-location {
     width: 282px;
     height: 40px;
@@ -82,6 +91,8 @@ img.follow-profile-pic {
     color: black !important;
     font-weight: bold;
     border-radius: 5px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
 }
 
 .border-round {
