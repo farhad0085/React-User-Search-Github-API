@@ -1,7 +1,7 @@
 import React from 'react'
 import TopNavbar from './components/navigations/TopNavbar';
-import HomePage from './pages/HomePage';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+import UserRoutes from './routes/UserRoutes';
 
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
             <div className="App">
                 <TopNavbar />
                 <div className="container-fluid mb-5">
-                    <Route path="/" component={HomePage} />
+                    <UserRoutes />
                 </div>
             </div>
         </BrowserRouter>

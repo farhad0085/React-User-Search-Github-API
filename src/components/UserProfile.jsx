@@ -2,7 +2,6 @@ import React from 'react'
 import { connect } from 'react-redux'
 import UserProfileNavbar from './navigations/UserProfileNavbar';
 import { getFormattedDateTime } from '../utils';
-import UserRoutes from './routes/UserRoutes'
 
 const UserProfile = ({ user }) => {
 
@@ -35,7 +34,6 @@ const UserProfile = ({ user }) => {
             </div>
 
             <UserProfileNavbar />
-            <UserRoutes />
         </>
     )
 
