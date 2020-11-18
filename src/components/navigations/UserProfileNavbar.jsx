@@ -1,11 +1,30 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from "react-router-dom";
 import { connect } from 'react-redux'
 
-const UserProfileNavbar = ({user}) => {
+const UserProfileNavbar = ({ user }) => {
+
+    const initialClasses = "navbar navbar-expand-lg navbar-dark bg-dark mb-4 p-4"
+    const scrolledClasses = "navbar navbar-expand-lg navbar-dark bg-dark mb-4 p-4 fixed-top"
+
+    const [navClasses, setNavClasses] = useState(initialClasses)
+
+    const handleScroll = () => {
+        const offset = window.scrollY;
+        if (offset > window.innerHeight / 2) {
+            setNavClasses(scrolledClasses)
+        }
+        else {
+            setNavClasses(initialClasses)
+        }
+    }
+
+    useEffect(() => {
+        window.addEventListener('scroll', handleScroll)
+    })
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark mb-4 p-4">
+        <nav className={navClasses}>
             <ul className="navbar-nav mx-auto">
                 <li className="nav-item">
                     <NavLink activeClassName="activeSectionNav" to="/repositories" className="nav-link card-link">Repositories ({user.public_repos})</NavLink>
@@ -26,7 +45,7 @@ const UserProfileNavbar = ({user}) => {
 }
 
 const mapStateToProps = state => {
-   return state
+    return state
 }
 
 export default connect(mapStateToProps)(UserProfileNavbar)
